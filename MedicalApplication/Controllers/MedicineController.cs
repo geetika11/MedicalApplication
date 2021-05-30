@@ -16,13 +16,16 @@ namespace MedicalApplication.Controllers
     public class MedicineController : ControllerBase
     {
         private readonly ILogger<MedicineController> _logger;
-        private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IMedicineService _medicineService;
-        public MedicineController(ILogger<MedicineController> logger, IWebHostEnvironment webHostEnvironment, IMedicineService medicineService)
+
+        private static string EXPIRED_MEDICINE_BGCOLOR = "#ffa500";
+        private static string TO_BE_EXPIRED_MEDICINE_BGCOLOR = "#ff0000";
+        private static string LOW_QUANTITY_MEDICINE_BGCOLOR = "#ffff00";
+
+        public MedicineController(ILogger<MedicineController> logger, IMedicineService medicineService)
         {
             _logger = logger;
             _medicineService = medicineService;
-            _webHostEnvironment = webHostEnvironment;
         }
 
         /// <summary>
@@ -49,11 +52,16 @@ namespace MedicalApplication.Controllers
                     {
                         if (item.Quantity < 10)
                         {
-                            item.QuantityBGColor = "#ffff00";
+                            item.QuantityBGColor = LOW_QUANTITY_MEDICINE_BGCOLOR;
                         }
-                        if ((item.ExpiryDate.Date - DateTime.Now).TotalDays < 30)
+
+                        if ((item.ExpiryDate.Date - DateTime.Now).TotalDays < 0)
                         {
-                            item.ExpiryDateBGColor = "#ff0000";
+                            item.ExpiryDateBGColor = EXPIRED_MEDICINE_BGCOLOR; //expired medicine
+                        }
+                        else if ((item.ExpiryDate.Date - DateTime.Now).TotalDays < 30)
+                        {
+                            item.ExpiryDateBGColor = TO_BE_EXPIRED_MEDICINE_BGCOLOR;
                         }
                     }
                     aPIResponse.Data = medicineData;

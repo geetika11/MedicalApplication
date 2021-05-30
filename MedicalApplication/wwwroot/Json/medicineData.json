@@ -28,7 +28,7 @@
     "Brand": "Amgen Ltd",
     "Price": 587,
     "Quantity": 45,
-    "ExpiryDate": "2021-05-22T00:00:00",
+    "ExpiryDate": "2021-06-22T00:00:00",
     "Notes": null
   },
   {
@@ -36,7 +36,7 @@
     "Brand": "Aspen",
     "Price": 70,
     "Quantity": 22,
-    "ExpiryDate": "2024-02-04T00:00:00",
+    "ExpiryDate": "2021-02-04T00:00:00",
     "Notes": null
   }
 ]
