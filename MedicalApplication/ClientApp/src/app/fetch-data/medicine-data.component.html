@@ -12,7 +12,7 @@
     <div class="row">
       <input class="form-control col-sm-2 margin" [(ngModel)]="medicineQuantity" type="number" name="quantity" placeholder="Enter Quantity">
       <input class="form-control col-sm-2 margin" [(ngModel)]="medicineNotes"  type="text" name="notes" placeholder="Enter Notes">
-      <input class="form-control col-sm-2 margin" [(ngModel)]="medicineExpiry" type="date" name="expiry" placeholder="Enter Expiry Date">
+      <input class="form-control col-sm-2 margin" [(ngModel)]="medicineExpiry" [min]="todayDate" type="date" name="expiry" placeholder="Enter Expiry Date">
     </div>
     <div class="row">
       <button class="btn-primary margin col-sm-2" (click)="save()">Save</button>

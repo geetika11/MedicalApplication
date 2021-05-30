@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { MedicineDataComponent } from './fetch-data/medicine-data.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ]),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

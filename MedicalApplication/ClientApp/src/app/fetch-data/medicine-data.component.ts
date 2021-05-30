@@ -1,7 +1,7 @@
 
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-fetch-data',
   templateUrl: './medicine-data.component.html',
@@ -22,7 +22,9 @@ export class MedicineDataComponent {
   errorMessage: string;
   saveSuccessful: false;
   medicineNotes: string;
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  todayDate : string;
+
+  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string, private datePipe:DatePipe) {
 
     http.get<any>(baseUrl + 'medicine/getMedicineList').subscribe(result => {
 
@@ -61,6 +63,8 @@ export class MedicineDataComponent {
   }
 
   addRow() {
+    this.todayDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+    
     this.isAddClicked = true;
   }
 }
