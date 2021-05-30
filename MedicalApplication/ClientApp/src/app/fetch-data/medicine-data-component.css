@@ -1,0 +1,15 @@
+.error {
+  background: red;
+}
+
+.warn {
+  background: orange;
+}
+
+.message {
+  background: green;
+}
+
+.margin{
+    margin:10px;
+}

@@ -1,0 +1,54 @@
+<h1 id="tableLabel">Medicine Details</h1>
+
+<button class="btn-primary" (click)="addRow()">Add medicine details</button>
+
+<div *ngIf="isAddClicked">
+  <form class="form-horizontal">
+    <div class="row">
+      <input class="form-control col-sm-2 margin" [(ngModel)]="medicineName" name="name" placeholder="Enter Name">
+      <input class="form-control  col-sm-2 margin" [(ngModel)]="medicineBrand" name="brand" placeholder="Enter Brand">
+      <input class="form-control col-sm-2 margin" [(ngModel)]="medicinePrice" type="number" name="price" placeholder="Enter Price">
+    </div>
+    <div class="row">
+      <input class="form-control col-sm-2 margin" [(ngModel)]="medicineQuantity" type="number" name="quantity" placeholder="Enter Quantity">
+      <input class="form-control col-sm-2 margin" [(ngModel)]="medicineNotes"  type="text" name="notes" placeholder="Enter Notes">
+      <input class="form-control col-sm-2 margin" [(ngModel)]="medicineExpiry" type="date" name="expiry" placeholder="Enter Expiry Date">
+    </div>
+    <div class="row">
+      <button class="btn-primary margin col-sm-2" (click)="save()">Save</button>
+      <button class="btn-primary margin col-sm-2" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+
+  <div *ngIf="!saveSuccessful" class="margin"><em><strong>{{errorMessage}}</strong></em></div>
+</div>
+
+
+<div class="margin"></div>
+
+<!--<input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>-->
+<input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a medicine">
+
+<p *ngIf="!medicineData"><em>{{errorMessage}}</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="medicineData">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Brand</th>
+      <th>Price (per 10 tabs)</th>
+      <th>Quantity (in pcs.)</th>
+      <th>ExpiryDate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of medicineData | filter: searchText ">
+      <td>{{ item.name }}</td>
+      <td>{{ item.brand }}</td>
+      <td>{{ item.price }}</td>
+      <td [ngStyle]="{background:item.quantityBGColor}">{{ item.quantity }}</td>
+      <td [ngStyle]="{background:item.expiryDateBGColor}">{{ item.expiryDate.slice(0,10) }}</td>
+    </tr>
+
+  </tbody>
+</table>

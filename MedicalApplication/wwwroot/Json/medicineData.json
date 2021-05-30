@@ -1,0 +1,42 @@
+[
+  {
+    "Name": "Acyclovir",
+    "Brand": "Cipla",
+    "Price": 121,
+    "Quantity": 70,
+    "ExpiryDate": "2022-06-05T00:00:00",
+    "Notes": null
+  },
+  {
+    "Name": "Daclatasvir",
+    "Brand": "Serum",
+    "Price": 3254,
+    "Quantity": 128,
+    "ExpiryDate": "2022-06-04T00:00:00",
+    "Notes": null
+  },
+  {
+    "Name": "Paliperidone",
+    "Brand": "Lupin",
+    "Price": 578,
+    "Quantity": 8,
+    "ExpiryDate": "2022-06-04T00:00:00",
+    "Notes": null
+  },
+  {
+    "Name": "RALOXIFENE-ORAL",
+    "Brand": "Amgen Ltd",
+    "Price": 587,
+    "Quantity": 45,
+    "ExpiryDate": "2021-05-22T00:00:00",
+    "Notes": null
+  },
+  {
+    "Name": "Tacrine",
+    "Brand": "Aspen",
+    "Price": 70,
+    "Quantity": 22,
+    "ExpiryDate": "2024-02-04T00:00:00",
+    "Notes": null
+  }
+]
